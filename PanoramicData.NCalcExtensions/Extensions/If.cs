@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using NCalc.Handlers;
+using System.ComponentModel;
 
 namespace PanoramicData.NCalcExtensions.Extensions;
 
@@ -35,7 +36,7 @@ internal static class If
 		}
 		catch (Exception e) when (e is not NCalcExtensionsException or FormatException)
 		{
-			throw new FormatException($"Could not evaluate {ExtensionFunction.If} function parameter 1 '{functionArgs.Parameters[0].ParsedExpression}'.");
+			throw new FormatException($"Could not evaluate {ExtensionFunction.If} function parameter 1 '{functionArgs.Parameters[0].LogicalExpression/* ParsedExpression*/}'.");
 		}
 
 		if (boolParam1)
@@ -47,7 +48,7 @@ internal static class If
 			}
 			catch (Exception e) when (e is not NCalcExtensionsException or FormatException)
 			{
-				throw new FormatException($"Could not evaluate {ExtensionFunction.If} function parameter 2 '{functionArgs.Parameters[1].ParsedExpression}' due to {e.Message}.", e);
+				throw new FormatException($"Could not evaluate {ExtensionFunction.If} function parameter 2 '{functionArgs.Parameters[1].LogicalExpression/* ParsedExpression*/}' due to {e.Message}.", e);
 			}
 		}
 
@@ -57,7 +58,7 @@ internal static class If
 		}
 		catch (Exception e) when (e is not NCalcExtensionsException or FormatException)
 		{
-			throw new FormatException($"Could not evaluate {ExtensionFunction.If} function parameter 3 '{functionArgs.Parameters[2].ParsedExpression}' due to {e.Message}.", e);
+			throw new FormatException($"Could not evaluate {ExtensionFunction.If} function parameter 3 '{functionArgs.Parameters[2].LogicalExpression/* ParsedExpression*/}' due to {e.Message}.", e);
 		}
 	}
 }

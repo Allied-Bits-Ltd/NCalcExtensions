@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using NCalc.Handlers;
+using System.Collections.Generic;
 
 namespace PanoramicData.NCalcExtensions;
 
@@ -8,7 +9,7 @@ public class ExtendedExpression : Expression
 	private readonly CultureInfo _cultureInfo;
 	internal const string StorageDictionaryParameterName = "__storageDictionary";
 
-	public ExtendedExpression(string expression) : this(Tidy(expression), EvaluateOptions.None, CultureInfo.InvariantCulture) { }
+	public ExtendedExpression(string expression) : this(Tidy(expression), ExpressionOptions.None, CultureInfo.InvariantCulture) { }
 
 	/// <summary>
 	/// Treat this as multi-line input, stripping off any \r characters
@@ -28,13 +29,13 @@ public class ExtendedExpression : Expression
 
 	public ExtendedExpression(
 		string expression,
-		EvaluateOptions evaluateOptions,
+		ExpressionOptions evaluateOptions,
 		CultureInfo cultureInfo) : base(expression, evaluateOptions, cultureInfo)
 	{
 		_cultureInfo = cultureInfo;
 		Parameters[StorageDictionaryParameterName] = _storageDictionary;
 		EvaluateFunction += Extend;
-		CacheEnabled = false;
+		Options |= ExpressionOptions.NoCache;
 		if (Parameters.ContainsKey("null"))
 		{
 			throw new InvalidOperationException("You may not set a parameter called 'null', as it is a reserved keyword.");
