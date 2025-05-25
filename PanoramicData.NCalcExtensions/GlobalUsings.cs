@@ -1,4 +1,5 @@
 ﻿global using NCalc;
+global using NCalc.Domain;
 global using NCalc.Handlers;
 global using Newtonsoft.Json.Linq;
 global using PanoramicData.NCalcExtensions.Exceptions;

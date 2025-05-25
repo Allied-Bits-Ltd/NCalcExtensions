@@ -1,4 +1,7 @@
-﻿namespace PanoramicData.NCalcExtensions;
+﻿using NCalc.Handlers;
+using System.Collections.Generic;
+
+namespace PanoramicData.NCalcExtensions;
 
 public class ExtendedExpression : Expression
 {
