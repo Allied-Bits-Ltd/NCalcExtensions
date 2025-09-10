@@ -23,7 +23,7 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<DebugType>portable</DebugType>
 
-		<PackageReleaseNotes>Added multi-line and comment support.</PackageReleaseNotes>
+		<PackageReleaseNotes>Added additional 'select' unit test that uses a list of lists.</PackageReleaseNotes>
 
 		<Title>Panoramic Data NCalc Extensions</Title>
 		<AnalysisLevel>latest-recommended</AnalysisLevel>
@@ -51,7 +51,7 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-		<PackageReference Include="System.Formats.Asn1" Version="9.0.5" />
+		<PackageReference Include="System.Formats.Asn1" Version="9.0.9" />
 		<PackageReference Include="TimeZoneConverter" Version="7.0.0" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
 		<PackageReference Include="NuGet.Packaging" Version="6.14.0" PrivateAssets="All" />
