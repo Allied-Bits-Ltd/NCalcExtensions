@@ -33,6 +33,7 @@ public class OrderByTests : NCalcTest
 
 	[Theory]
 	[InlineData("n % 32", "n % 2", new[] { 34, 2, 33, 1 })]
+	[InlineData("n % 2", "n", new[] { 33, 1, 34, 2 })]
 	public void OrderBy_MultipleTerms_Succeeds(string expression1, string expression2, int[] expectedOrder)
 		=> new ExtendedExpression($"orderBy(list(34, 33, 2, 1), 'n', '{expression1}', '{expression2}')")
 		.Evaluate()

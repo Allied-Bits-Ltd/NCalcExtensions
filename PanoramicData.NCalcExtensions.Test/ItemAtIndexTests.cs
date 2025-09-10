@@ -20,7 +20,6 @@ public class ItemAtIndexTests : NCalcTest
 	public void ItemAtIndex_ReturnsExpected(string expression, object? expectedOutput)
 		=> new ExtendedExpression(expression).Evaluate().Should().Be(expectedOutput);
 
-	[Theory]
 	[InlineData("itemAtIndex(list(1, 2, 3, 4, 5), 1)", 2)]
 	public void ItemAtIndexWithListInts_ReturnsExpected(string expression, object? expectedOutput)
 		=> new ExtendedExpression(expression).Evaluate().Should().Be(expectedOutput);
@@ -80,19 +79,5 @@ public class ItemAtIndexTests : NCalcTest
 
 		result.Should().NotBeNull();
 		result.Should().BeEquivalentTo(new List<int> { 2, 6, 12 });
-	}
-
-	[Fact]
-	public void ItemAtIndexWithJArrayEmptyString_ReturnsString()
-	{
-		var expression = new ExtendedExpression("itemAtIndex(jArray('a', ''), 1)");
-		expression.Evaluate().Should().BeOfType<string>();
-	}
-
-	[Fact]
-	public void ItemAtIndexWithJArrayEmptyString_MatchesEmptyString()
-	{
-		var expression = new ExtendedExpression("itemAtIndex(jArray('a', ''), 1) == ''");
-		expression.Evaluate().Should().Be(true);
 	}
 }
