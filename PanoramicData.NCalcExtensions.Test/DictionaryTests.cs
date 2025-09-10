@@ -9,7 +9,7 @@ public class DictionaryTests
 	{
 		var expression = new ExtendedExpression("dictionary('p1', true, 'p2')");
 
-		var action = expression.Evaluate;
+		Func<object?> action = expression.Evaluate;
 		action.Should().Throw<FormatException>();
 	}
 
@@ -18,7 +18,7 @@ public class DictionaryTests
 	{
 		var expression = new ExtendedExpression("dictionary(0, true, 'p2', false)");
 
-		var action = expression.Evaluate;
+		Func<object?> action = expression.Evaluate;
 		action.Should().Throw<FormatException>();
 	}
 
@@ -48,7 +48,7 @@ public class DictionaryTests
 	{
 		var expression = new ExtendedExpression("dictionary(null, true, 'p2', false)");
 
-		var action = expression.Evaluate;
+		Func<object?> action = expression.Evaluate;
 		action.Should().Throw<FormatException>();
 	}
 
