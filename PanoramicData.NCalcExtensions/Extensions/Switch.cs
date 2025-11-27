@@ -24,7 +24,6 @@ internal static class Switch
 			throw new FormatException($"{ExtensionFunction.Switch}() requires at least three parameters.");
 		}
 
-		object valueParam;
 		try
 		{
 			var valueParam = functionArgs.Parameters[0].Evaluate();
